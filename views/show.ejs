@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <nav>
+        <h2>Workoutxpress</h2>
+        <span><a class="homePage" href="/workoutxpress">Home</a></span>
+        <span><a class="newWorkout" href="/workoutxpress/new">Create</a></span>
+        <span><a class="pastWorkout" href="/workoutxpress/index">Past Workouts</a></span>
+    </nav>
+    <div>
+        <div>
+            <h3><%=workouts.name %></h3>
+
+            <p>Workout Date: <%=workouts.date %></p>
+            <p><%=workouts.description %></p>
+            <p><%=workouts[i].description %><br />
+            Target Areas:<br /><% if(workouts[i].upperBody === true){ %>
+            Upper Body<br />
+            <% } %>
+            <% if(workouts[i].lowerBody === true){ %>
+            Lower Body<br />
+            <% } %>
+            <% if(workouts[i].cardio === true){ %>
+            Cardio<br />
+            <% } %>
+            <% if(workouts[i].static === true){ %>
+            Static<br />
+            <% } %>
+            <% if(workouts[i].weightTraining === true){ %>
+            Weight Training
+            <% } %>
+        </p>
+        </div>
+        <button type="button button1"><a href="/index/<%= workouts.id %>/edit"></a>Edit</button>
+        <form action="/index/<%= workouts.id %>?_method=DELETE" method="POST">
+            <button type="button button2">Delete</button>
+        </form>
+        <% } %>
+    </div>
+
+</body>
+
+</html>

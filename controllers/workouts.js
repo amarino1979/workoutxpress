@@ -10,17 +10,29 @@ router.get('/seed', async (req, res) => {
                 name: 'Heavy lifting',
                 date: 6 / 12 / 2020,
                 description: '2 reps of bench press, 2 reps of arm curls, 2 reps of tricep extensions',
-                targetArea: ['Upper body', 'Weight training'],
+                upperBody: true,
+                lowerBody: false,
+                cardio: false,
+                static: false,
+                weightTraining: true,
             }, {
                 name: 'Fat Burner',
                 date: 6 / 14 / 2020,
                 description: 'Bench Runners, Jump Rope, Fast Feet Drop',
-                targetArea: ['Cardio'],
+                upperBody: false,
+                lowerBody: true,
+                cardio: true,
+                static: true,
+                weightTraining: false,
             }, {
                 name: 'Honey Buns',
                 date: 6 / 16 / 2020,
                 description: 'Squats, Lunges, Thrusters',
-                targetArea: ['Lower body', 'Static'],
+                upperBody: false,
+                lowerBody: true,
+                cardio: false,
+                static: true,
+                weightTraining: false,
             }
         ]
     try {
@@ -56,4 +68,14 @@ router.post('/index', (req, res) => {
         res.redirect('/index');
       })
 })
+
+// Show Route
+router.get('/:id', (req, res) =>{
+    Workout.findById(req.params.id, (err, foundWorkout)=>{
+      res.render('show.ejs', {
+        workouts: foundWorkout,
+      })
+    })
+  })
+
 module.exports = router;

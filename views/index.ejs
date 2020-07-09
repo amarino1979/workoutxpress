@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,13 +19,11 @@
             <ul>
                 <% for (let i = 0; i < workouts.length; i++) { %>
                 <li>
-                    <% workouts[i].name %><br />
-                    <% workouts[i].date %><br />
-                    <% workouts[i].description %><br />
-                    
+                    <a href="/show/"><%=workouts[i].name %></a><br />
+                    <%=workouts[i].date %><br />
                 </div>
             </li>
-         <% } %>
+            <% } %>
         </ul>
     </div>
 </body>
