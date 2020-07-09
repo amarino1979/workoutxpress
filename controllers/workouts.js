@@ -70,12 +70,18 @@ router.post('/index', (req, res) => {
 })
 
 // Show Route
-router.get('/:id', (req, res) =>{
+router.get('/workouts/:id', (req, res) =>{
+    console.log(Workout)
     Workout.findById(req.params.id, (err, foundWorkout)=>{
       res.render('show.ejs', {
         workouts: foundWorkout,
       })
     })
   })
+  router.delete('/:id', (req, res) => {
+    Workout.findByIdAndDelete(req.params.id, (err, deleteWorkout) => {
+        res.redirect('/logs');
+    });
+});
 
 module.exports = router;
