@@ -63,9 +63,34 @@ router.get('/new', (req, res) => {
 })
 
 // Post Route
-router.post('/index', (req, res) => {
+router.post('/workouts/index', (req, res) => {
+    if(req.body.upperBody === 'on'){
+        req.body.upperBody = true
+    } else {
+        req.body.upperBody = false
+    }
+    if(req.body.lowerBody === 'on'){
+        req.body.lowerBody = true
+    } else {
+        req.body.lowerBody = false
+    }
+    if(req.body.cardio === 'on'){
+        req.body.cardio = true
+    } else {
+        req.body.cardio = false
+    }
+    if(req.body.static === 'on'){
+        req.body.static = true
+    } else {
+        req.body.static = false
+    }
+    if(req.body.weightTraining === 'on'){
+        req.body.weightTraining = true
+    } else {
+        req.body.weightTraining =false
+    }
     Workout.create(req.body, (error, createdWorkout)=>{
-        res.redirect('/index');
+        res.redirect('/workouts/index');
       })
 })
 
@@ -78,9 +103,9 @@ router.get('/workouts/:id', (req, res) =>{
       })
     })
   })
-  router.delete('/:id', (req, res) => {
+  router.delete('workouts/:id', (req, res) => {
     Workout.findByIdAndDelete(req.params.id, (err, deleteWorkout) => {
-        res.redirect('/logs');
+        res.redirect('/workouts');
     });
 });
 
