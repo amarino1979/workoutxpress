@@ -4,11 +4,12 @@ const workoutSchema = new mongoose.Schema({
     name: String,
     date: { type: Date, required: true},
     description: String,
-    upperBody: { type: Boolean, default: true },
-    lowerBody: { type: Boolean, default: true },
-    cardio: { type: Boolean, default: true },
-    static: { type: Boolean, default: true },
-    weightTraining: { type: Boolean, default: true },
+    targetArea: [String],
+    // upperBody: { type: Boolean, default: false },
+    // lowerBody: { type: Boolean, default: false },
+    // cardio: { type: Boolean, default: false },
+    // static: { type: Boolean, default: false },
+    // weightTraining: { type: Boolean, default: false },
 
 })
 

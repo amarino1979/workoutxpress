@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Past Workouts</title>
+</head>
+
+<body>
+    <nav>
+        <h2>Workoutxpress</h2>
+        <span><a class="homePage" href="/workoutxpress">Home</a></span>
+        <span><a class="newWorkout" href="/workoutxpress/new">Create</a></span>
+        <span><a class="pastWorkout" href="/workoutxpress/index">Past Workouts</a></span>
+    </nav>
+    <div>
+        <div>
+            <h3>Past Workouts</h3>
+            <ul>
+                <% for (let i = 0; i < workouts.length; i++) { %>
+                <li>
+                    <% workouts[i].name %><br />
+                    <% workouts[i].date %><br />
+                    <% workouts[i].description %><br />
+                    
+                </div>
+            </li>
+         <% } %>
+        </ul>
+    </div>
+</body>
+
+</html>
