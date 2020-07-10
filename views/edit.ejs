@@ -6,6 +6,41 @@
     <title>Edit Workouts</title>
 </head>
 <body>
-    
+    <nav>
+        <h2>Workoutxpress</h2>
+        <span><a class="homePage" href="/workoutxpress">Home</a></span>
+        <span><a class="pastWorkout" href="/workoutxpress/index">Past Workouts</a></span>
+    </nav>
+    <h1>New Workout</h1>
+    <form action="/workoutxpress/workouts/index/<% workouts.id?_method=Put" method="POST">
+        <input type="text" name="name" value="<%= workouts.name %>"/><br/>
+        <input type="date" name="date" value="<%= workouts.date %>"><br/>
+        <textarea name="description" value="<%= workouts.exercises %>"></textarea><br/>
+        Upper Body: <input type="checkbox" name="upperBody" <% if (workouts.upperBody) { %>
+                checked
+                <% } %>
+            /><br/>
+        Lower Body: <input type="checkbox" name="lowerBody" 
+        <% if (workouts.lowerBody) { %>
+            checked
+            <% } %>
+        /><br/>
+        Cardio: <input type="checkbox" name="cardio" 
+        <% if (workouts.cardio) { %>
+            checked
+            <% } %>
+        /><br/>
+        Static: <input type="checkbox" name="static" 
+        <% if (workouts.static) { %>
+            checked
+            <% } %>
+        /><br/>
+        Weight Training: <input type="checkbox" name="weightTraining" 
+        <% if (workouts.weightTraining) { %>
+            checked
+            <% } %>
+        /><br/>
+        <input type="submit" value="Create Workout"/>
+    </form>
 </body>
 </html>

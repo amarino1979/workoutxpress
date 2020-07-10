@@ -8,7 +8,7 @@ router.get('/seed', async (req, res) => {
         [
             {
                 name: 'Heavy lifting',
-                date: 6 / 12 / 2020,
+                date: 'Thurs Jan 1 2020',
                 description: '2 reps of bench press, 2 reps of arm curls, 2 reps of tricep extensions',
                 upperBody: true,
                 lowerBody: false,
@@ -17,7 +17,7 @@ router.get('/seed', async (req, res) => {
                 weightTraining: true,
             }, {
                 name: 'Fat Burner',
-                date: 6 / 14 / 2020,
+                date: 'Fri Jan 25 2020',
                 description: 'Bench Runners, Jump Rope, Fast Feet Drop',
                 upperBody: false,
                 lowerBody: true,
@@ -26,7 +26,7 @@ router.get('/seed', async (req, res) => {
                 weightTraining: false,
             }, {
                 name: 'Honey Buns',
-                date: 6 / 16 / 2020,
+                date: 'Mon June 1 2020',
                 description: 'Squats, Lunges, Thrusters',
                 upperBody: false,
                 lowerBody: true,
@@ -64,6 +64,7 @@ router.get('/new', (req, res) => {
 
 // Post Route
 router.post('/workouts/index', (req, res) => {
+    //console.log(req.body)
     if(req.body.upperBody === 'on'){
         req.body.upperBody = true
     } else {
@@ -90,23 +91,65 @@ router.post('/workouts/index', (req, res) => {
         req.body.weightTraining =false
     }
     Workout.create(req.body, (error, createdWorkout)=>{
-        res.redirect('/workouts/index');
+        res.redirect('/workoutxpress/index');
       })
 })
 
 // Show Route
 router.get('/workouts/:id', (req, res) =>{
-    console.log(Workout)
+    //console.log(Workout)
     Workout.findById(req.params.id, (err, foundWorkout)=>{
       res.render('show.ejs', {
         workouts: foundWorkout,
       })
     })
   })
-  router.delete('workouts/:id', (req, res) => {
-    Workout.findByIdAndDelete(req.params.id, (err, deleteWorkout) => {
-        res.redirect('/workouts');
+  // Edit Route
+  router.get('workouts/:id/edit', (req, res) => {
+    Workout.findById(req.params.id, (err, foundWorkout) => {
+        res.render('edit.ejs', {
+            workouts: foundWorkout,
+        })
+    })
+})
+// Update Route
+  router.put('workouts/:id', (req, res) => {
+    if(req.body.upperBody === 'on'){
+        req.body.upperBody = true
+    } else {
+        req.body.upperBody = false
+    }
+    if(req.body.lowerBody === 'on'){
+        req.body.lowerBody = true
+    } else {
+        req.body.lowerBody = false
+    }
+    if(req.body.cardio === 'on'){
+        req.body.cardio = true
+    } else {
+        req.body.cardio = false
+    }
+    if(req.body.static === 'on'){
+        req.body.static = true
+    } else {
+        req.body.static = false
+    }
+    if(req.body.weightTraining === 'on'){
+        req.body.weightTraining = true
+    } else {
+        req.body.weightTraining =false
+    }
+    Workout.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, updatedWorkout) => {
+        res.redirect('/workoutxpress/index');
     });
 });
+  // Delete Route
+  router.post('/workouts/:id', (req, res) => {
+      //console.log('test')
+    Workout.findByIdAndRemove(req.params.id, (err, deleteWorkout) => {
+        res.redirect('/workoutxpress/index')
+    })
+})
 
 module.exports = router;
+
