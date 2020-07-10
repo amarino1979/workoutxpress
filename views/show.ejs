@@ -37,7 +37,7 @@
             <% } %>
         </p>
         </div>
-        <button type="submit"><a href="/workoutxpress/workouts/<%= workouts.id %>/edit"></a>Edit</button>
+        <a href="/workoutxpress/workouts/<%= workouts.id %>/edit"><button>Edit</button></a>
         <form action="/workoutxpress/workouts/<%= workouts.id %>?_method=DELETE" method="POST">
             <input type="submit" value="Delete Workout"/>
         </form>

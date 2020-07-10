@@ -105,10 +105,11 @@ router.get('/workouts/:id', (req, res) =>{
     })
   })
   // Edit Route
-  router.get('workouts/:id/edit', (req, res) => {
+  router.get('/workouts/:id/edit', (req, res) => {
+      //console.log('test')
     Workout.findById(req.params.id, (err, foundWorkout) => {
         res.render('edit.ejs', {
-            workouts: foundWorkout,
+            workouts: foundWorkout
         })
     })
 })
