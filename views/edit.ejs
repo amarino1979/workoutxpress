@@ -9,10 +9,10 @@
     <nav>
         <h2>Workoutxpress</h2>
         <span><a class="homePage" href="/workoutxpress">Home</a></span>
-        <span><a class="pastWorkout" href="/workoutxpress/index">Past Workouts</a></span>
+        <span><a class="pastWorkout" href="/workoutxpress/workouts">Past Workouts</a></span>
     </nav>
     <h1>Update Workout</h1>
-    <form action="/workoutxpress/workouts/index/<% workouts.id %>?_method=Put" method="POST">
+    <form action="/workoutxpress/workouts/<%= workouts.id %>?_method=PUT" method="POST">
         <input type="text" name="name" value="<%= workouts.name %>"/><br/>
         <input type="date" name="date" value="<%= workouts.date %>"><br/>
         <textarea name="description" value="<%= workouts.exercises %>"></textarea><br/>

@@ -50,7 +50,7 @@ router.get('/', (req, res) => {
 })
 
 // Index Route
-router.get('/index', (req, res) => {
+router.get('/workouts', (req, res) => {
     Workout.find({}, (error, allWorkouts) => {
         res.render('index.ejs', {
             workouts: allWorkouts
@@ -63,7 +63,7 @@ router.get('/new', (req, res) => {
 })
 
 // Post Route
-router.post('/workouts/index', (req, res) => {
+router.post('/workouts', (req, res) => {
     //console.log(req.body)
     if(req.body.upperBody === 'on'){
         req.body.upperBody = true
@@ -91,7 +91,7 @@ router.post('/workouts/index', (req, res) => {
         req.body.weightTraining =false
     }
     Workout.create(req.body, (error, createdWorkout)=>{
-        res.redirect('/workoutxpress/index');
+        res.redirect('/workoutxpress/workouts');
       })
 })
 
@@ -114,7 +114,7 @@ router.get('/workouts/:id', (req, res) =>{
     })
 })
 // Update Route
-  router.put('workouts/:id', (req, res) => {
+  router.put('/workouts/:id', (req, res) => {
     if(req.body.upperBody === 'on'){
         req.body.upperBody = true
     } else {
@@ -141,14 +141,18 @@ router.get('/workouts/:id', (req, res) =>{
         req.body.weightTraining =false
     }
     Workout.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, updatedWorkout) => {
-        res.redirect('/workoutxpress/index');
+        if (err){
+            console.log(err)
+        } else {
+            res.redirect('/workoutxpress/workouts');
+        }
     });
 });
   // Delete Route
-  router.post('/workouts/:id', (req, res) => {
+  router.delete('/workouts/:id', (req, res) => {
       //console.log('test')
     Workout.findByIdAndRemove(req.params.id, (err, deleteWorkout) => {
-        res.redirect('/workoutxpress/index')
+        res.redirect('/workoutxpress/workouts')
     })
 })
 
