@@ -52,14 +52,20 @@ router.get('/', (req, res) => {
 // Index Route
 router.get('/workouts', (req, res) => {
     Workout.find({}, (error, allWorkouts) => {
+        console.log(req.session)
+        req.session.anyProperty = 'any value'
+        console.log(req.session)
         res.render('index.ejs', {
-            workouts: allWorkouts
+            workouts: allWorkouts,
+            currentUser: req.session.currentUser
         })
     })
 })
 // New Route
 router.get('/new', (req, res) => {
-    res.render('new.ejs')
+    res.render('new.ejs', {
+        currentUser: req.session.currentUser
+    })
 })
 
 // Post Route
@@ -101,6 +107,7 @@ router.get('/workouts/:id', (req, res) =>{
     Workout.findById(req.params.id, (err, foundWorkout)=>{
       res.render('show.ejs', {
         workouts: foundWorkout,
+        currentUser: req.session.currentUser
       })
     })
   })
@@ -109,7 +116,8 @@ router.get('/workouts/:id', (req, res) =>{
       //console.log('test')
     Workout.findById(req.params.id, (err, foundWorkout) => {
         res.render('edit.ejs', {
-            workouts: foundWorkout
+            workouts: foundWorkout,
+            currentUser: req.session.currentUser
         })
     })
 })
