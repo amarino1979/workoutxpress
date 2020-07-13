@@ -1,6 +1,7 @@
 const express = require('express')
 const sessionsRouter = express.Router()
 const bcrypt = require('bcrypt')
+const User = require('../models/users')
 
 sessionsRouter.get('/new', (req, res) => {
     res.render('sessions/new.ejs', {

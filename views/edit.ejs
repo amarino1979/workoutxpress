@@ -7,9 +7,7 @@
 </head>
 <body>
     <nav>
-        <h2>Workoutxpress</h2>
-        <span><a class="homePage" href="/workoutxpress">Home</a></span>
-        <span><a class="pastWorkout" href="/workoutxpress/workouts">Past Workouts</a></span>
+        <%- include('./partials/nav.ejs') %>
     </nav>
     <h1>Update Workout</h1>
     <form action="/workoutxpress/workouts/<%= workouts.id %>?_method=PUT" method="POST">

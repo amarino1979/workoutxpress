@@ -1,0 +1,17 @@
+<h1>Workoutxpress</h1>
+<ul class="right">
+    <li><a class="homePage" href="/workoutxpress">Home</a></li>
+    <li><a href="/workoutxpress/new">Create a new workout</a></li>
+    <li><a class="pastWorkout" href="/workoutxpress/workouts">Past Workouts</a></li>
+    <% if (currentUser) { %>
+    <li>Welcome <%= currentUser.username %></li>
+    <li>
+        <form action="/sessions?_method=DELETE" method="POST">
+            <input type="submit" value="Log Out" class="btn-small red" />
+        </form>
+    </li>
+    <% } else { %>
+    <li><a href="/users/new">Sign Up</a></li>
+    <li><a href="/sessions/new">Log In</a></li>
+    <% } %>
+</ul>

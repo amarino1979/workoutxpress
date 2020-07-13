@@ -46,7 +46,10 @@ router.get('/seed', async (req, res) => {
 
 // Landing Route
 router.get('/', (req, res) => {
-    res.render('home.ejs')
+    res.render('home.ejs', {
+        currentUser: req.session.currentUser
+    })
+    
 })
 
 // Index Route
