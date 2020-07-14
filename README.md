@@ -38,7 +38,7 @@ https://workoutxpress.herokuapp.com/workoutxpress
 ## Future Development and Issues to Fix
 - Tried to use framer.com for wire frames this time but it was too time consuming to learn and play around with under the circumstances...
 - Further Styling to finish out the site.
-- Need to develop out the homepage and about section in the footer.
+- Need to develop out the homepage and about section in the footer to be formatted correctly.
 - Create a second model just for users as for now each new workout will show up in everyone's account!
 - Add some drop downs to spice things up in the update/new pages.
 - Use google maps to show popular workout locations near the user.

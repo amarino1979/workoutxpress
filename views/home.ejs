@@ -12,7 +12,7 @@
     </nav>
     <div class="container">
         <div>
-            <form>
+            <!-- <form>
                 <div class="form-group">
                   <label for="exampleUserName">Username</label>
                   <input type="text" class="form-control" id="exampleUserName" aria-describedby="emailHelp">
@@ -23,13 +23,14 @@
                   <input type="password" class="form-control" id="exampleInputPassword1">
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
-              </form>
+              </form> -->
               <!-- Welcome -->
             <div class="container-fluid padding">
                 <div class="row welcome text-center">
                     <div class="col-12">
-                        <h1 class="display-4">Welcome</h1>
-                        <p>Going to the gym, home-workouts, bootcamps and the like all take planning.  I have found that it is a good practice to write things down when I lead bootcamps...but no more!  I created this app to help me when leading F3 bootcamps at Falcon and South Parks.  My hope is that others that lead with me can use this tool as well to help them plan.</p>
+                        <h1 class="display-4" style="color:slategray; font-size: 700%; font-weight: bold;">Welcome</h1>
+                        <hr class="dark">
+                        <p style="color: steelblue; font-size: 200%;">Going to the gym, home-workouts, bootcamps and the like all take planning.  I have found that it is a good practice to write things down when I lead bootcamps...but no more!  I created this app to help me when leading F3 bootcamps at Falcon and South Parks.  My hope is that others that lead with me can use this tool as well to help them plan.</p>
                     </div>
                     <hr>
                 </div>
@@ -78,7 +79,9 @@
 
             </div>
     </div>
-    
 </body>
+<footer>
+    <%- include('./partials/footer.ejs') %>
+</footer>
 
 </html>
