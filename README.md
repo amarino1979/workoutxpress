@@ -18,14 +18,16 @@ https://workoutxpress.herokuapp.com/workoutxpress
 - Javascript
 - MongoDB
 - Mongoose
+- Hosted on Heroku
 
 ## Features
 - WorkoutXpress is a full CRUD app utilizing all 7 restful routes.
+- File structure is broken up into Models, Views, and Controllers.
 - It has user authentication by using Bcrypt which includes protected passwords.
 - Once signed in the user can log out to end their session.
 - You have the ability to create, update, or delete workouts.
 
-## Wireframe
+## Wireframe - none available at this time
 - Flow of the website
     - Enter on homepage
     - Login or sign-up
@@ -34,7 +36,7 @@ https://workoutxpress.herokuapp.com/workoutxpress
     - When finished log out.
 
 ## Future Development and Issues to Fix
-- Tried to use framer.com for wire frames this time but it was too time consuming to learn and play around with...
+- Tried to use framer.com for wire frames this time but it was too time consuming to learn and play around with under the circumstances...
 - Further Styling to finish out the site.
 - Need to develop out the homepage and about section in the footer.
 - Create a second model just for users as for now each new workout will show up in everyone's account!
