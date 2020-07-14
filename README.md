@@ -26,9 +26,15 @@ https://workoutxpress.herokuapp.com/workoutxpress
 - You have the ability to create, update, or delete workouts.
 
 ## Wireframe
-https://docs.google.com/document/d/16tn65xzW1zBui-Oqs9WbfbU9YfzboNNqgQKDRl1CS3M/edit?usp=sharing
+- Flow of the website
+    - Enter on homepage
+    - Login or sign-up
+        - if password and user name aren't taken user can continue/ if not try another
+    - Enter past workouts/index page and you have options to choose from create, delete, and update.
+    - When finished log out.
 
 ## Future Development and Issues to Fix
+- Tried to use framer.com for wire frames this time but it was too time consuming to learn and play around with...
 - Further Styling to finish out the site.
 - Need to develop out the homepage and about section in the footer.
 - Create a second model just for users as for now each new workout will show up in everyone's account!
