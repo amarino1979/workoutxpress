@@ -1,17 +1,29 @@
-<h1>Workoutxpress</h1>
-<ul class="right">
-    <li><a class="homePage" href="/workoutxpress">Home</a></li>
-    <li><a href="/workoutxpress/new">Create a new workout</a></li>
-    <li><a class="pastWorkout" href="/workoutxpress/workouts">Past Workouts</a></li>
-    <% if (currentUser) { %>
-    <li>Welcome <%= currentUser.username %></li>
-    <li>
-        <form action="/sessions?_method=DELETE" method="POST">
-            <input type="submit" value="Log Out" class="btn-small red" />
-        </form>
-    </li>
-    <% } else { %>
-    <li><a href="/users/new">Sign Up</a></li>
-    <li><a href="/sessions/new">Log In</a></li>
-    <% } %>
-</ul>
+<nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
+    <div class="container-fluid">
+        <h1>WorkoutXpress</h1>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="homePage" href="/workoutxpress">Home</a></li>
+                <li class="nav-item active"><a href="/workoutxpress/new">Create</a></li>
+                <li class="nav-item active"><a class="pastWorkout" href="/workoutxpress/workouts">Past Workouts</a></li>
+                <% if (currentUser) { %>
+                <li class="nav-item active">Welcome <%= currentUser.username %></li>
+                <li class="nav-item active">
+                    <form action="/sessions?_method=DELETE" method="POST">
+                        <input type="submit" value="Log Out" class="btn-small red" />
+                    </form>
+                </li class="nav-item active">
+                <% } else { %>
+                <li><a href="/users/new">Sign Up</a></li>
+                <li class="nav-item active"><a href="/sessions/new">Log In</a></li>
+                <% } %>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- bootstrap code from: Drew Ryan https://youtu.be/9cKsq14Kfsw -->
