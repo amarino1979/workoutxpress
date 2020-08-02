@@ -11,11 +11,13 @@
         <%- include('../partials/nav.ejs') %>
      </nav>
     <div id="sign-in-container">
-        <h1>Login</h1>
+        <h2>Login</h2>
         <form action="/sessions" method="POST">
-            Username: <input type="text" name="username"><br />
-            Password: <input type="password" name="password" /><br />
-            <input type="submit" value="Login" />
+            <label for="username">Username</label>
+            <input type="text" class="form-control" name="username"/><br />
+            <label for="password">Password</label>
+            <input type="password" class="form-control" name="password"/><br />
+            <input type="submit" class="btn btn-primary"></input>
         </form>
     </div>
 </body>
