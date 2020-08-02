@@ -4,4 +4,8 @@ body {
 
 #sign-in-container {
     background-color: darkgrey;
+    color: whitesmoke;
+    max-width: 500px;
+    margin: 0px;
+    padding: 2rem;
 }
