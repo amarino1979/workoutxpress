@@ -10,11 +10,18 @@ body {
     padding: 2rem;
 }
 
-#navbar {
+/* #navbar {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
+
+#navbarSupportedContent {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+} */
+
 footer {
     background-color: darkgrey;
     margin: 0px;
