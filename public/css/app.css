@@ -29,5 +29,15 @@ footer {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    height: 250px;
+    height: 290px;
+    width: 100%;
+}
+
+.card {
+    height: 450px !important;
+    padding-bottom: 1rem !important;
+}
+
+.card-img-top {
+    height: 220px !important;
 }
