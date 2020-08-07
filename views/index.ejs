@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <%- include('./partials/head.ejs') %>
     <title>Past Workouts</title>
@@ -7,21 +8,23 @@
 
 <body>
     <nav>
-       <%- include('./partials/nav.ejs') %>
+        <%- include('./partials/nav.ejs') %>
     </nav>
-    <div>
         <div>
-            <h3>Past Workouts</h3>
-            <ul>
+        <h1 style="text-align: center; color: slategray; font-size: 600%; font-weight: bold;">Past Workouts</h1>
+        <div class="card" style="width: 33rem;">
+            <div class="card-header">
+              Featured
+            </div>
+            <ul class="list-group list-group-flush">
                 <% for (let i = 0; i < workouts.length; i++) { %>
-                <li>
-                    <a href="/workoutxpress/workouts/<%=workouts[i].id %>"><%=workouts[i].name %></a><br />
-                    <%=workouts[i].date %><br />
-                </div>
-            </li>
-            <% } %>
-        </ul>
-    </div>
+              <li class="list-group-item">
+                  <a href="/workoutxpress/workouts/<%=workouts[i].id %>"><%=workouts[i].name %></a><br />
+                  <%=workouts[i].date %><br />
+              </li>
+              <% } %>
+            </ul>
+          </div>
+        </div>   
 </body>
-
 </html>

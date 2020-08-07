@@ -1,41 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <%- include('./partials/head.ejs') %>
-        <title>Workout</title>
-    </head>
+<head>
+    <%- include('./partials/head.ejs') %>
+    <title>Workout</title>
+</head>
+
 <body>
     <nav>
         <%- include('./partials/nav.ejs') %>
     </nav>
-    <div>
-        <div>
+    <div class="card w-25 mr-auto">
+        <div class="card-body">
+            <h5 class="card-title"></h5>
             <h3><%=workouts.name %></h3>
 
             <p>Workout Date: <%=workouts.date %></p>
             <p><%=workouts.description %><br />
-            Target Areas:<br /><% if(workouts.upperBody === true){ %>
-            Upper Body<br />
-            <% } %>
-            <% if(workouts.lowerBody === true){ %>
-            Lower Body<br />
-            <% } %>
-            <% if(workouts.cardio === true){ %>
-            Cardio<br />
-            <% } %>
-            <% if(workouts.static === true){ %>
-            Static<br />
-            <% } %>
-            <% if(workouts.weightTraining === true){ %>
-            Weight Training
-            <% } %>
-        </p>
+                Target Areas:<br /><% if(workouts.upperBody === true){ %>
+                Upper Body<br />
+                <% } %>
+                <% if(workouts.lowerBody === true){ %>
+                Lower Body<br />
+                <% } %>
+                <% if(workouts.cardio === true){ %>
+                Cardio<br />
+                <% } %>
+                <% if(workouts.static === true){ %>
+                Static<br />
+                <% } %>
+                <% if(workouts.weightTraining === true){ %>
+                Weight Training
+                <% } %>
+            </p>
         </div>
-        <a href="/workoutxpress/workouts/<%= workouts.id %>/edit"><button>Edit</button></a>
+        <div class="btn-wrapper text-center d-flex justify-content-between">
+        <a href="/workoutxpress/workouts/<%= workouts.id %>/edit" class="btn btn-primary">Update</a>
         <form action="/workoutxpress/workouts/<%= workouts.id %>?_method=DELETE" method="POST">
-            <input type="submit" value="Delete Workout"/>
+            <input type="submit" class="btn btn-secondary d-flex align-items-center" value="Delete Workout" />
         </form>
     </div>
+    </div>
 </body>
+
 </html>

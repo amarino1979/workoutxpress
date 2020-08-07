@@ -8,17 +8,23 @@
     <nav>
         <%- include('./partials/nav.ejs') %>
     </nav>
-    <h1>New Workout</h1>
-    <form action="/workoutxpress/workouts" method="POST">
-        <input type="text" name="name" placeholder="workout name"/><br/>
-        <input type="date" name="date" placeholder="date"><br/>
-        <textarea name="description" placeholder="exercises"></textarea><br/>
-        Upper Body: <input type="checkbox" name="upperBody" /><br/>
-        Lower Body: <input type="checkbox" name="lowerBody" /><br/>
-        Cardio: <input type="checkbox" name="cardio" /><br/>
-        Static: <input type="checkbox" name="static" /><br/>
-        Weight Training: <input type="checkbox" name="weightTraining" /><br/>
-        <input type="submit" value="Create Workout"/>
-    </form>
+    <h1 style="text-align: center; color: slategray; font-size: 600%; font-weight: bold;">New Workout</h1>
+    <div class="card w-25 mr-auto">
+        <div class="card-body">
+          <h5 class="card-title">Workout</h5>
+          <p class="card-text">Creating a workout plan can help you stay on track so don't forget to add exercises and repitions.</p>
+          <form action="/workoutxpress/workouts" method="POST">
+              <input type="text" name="name" placeholder="workout name"/><br/>
+              <input type="date" name="date" placeholder="date"><br/>
+              <textarea name="description" placeholder="exercises"></textarea><br/>
+              Upper Body: <input type="checkbox" name="upperBody" /><br/>
+              Lower Body: <input type="checkbox" name="lowerBody" /><br/>
+              Cardio: <input type="checkbox" name="cardio" /><br/>
+              Static: <input type="checkbox" name="static" /><br/>
+              Weight Training: <input type="checkbox" name="weightTraining" /><br/>
+              <input type="submit" class="btn btn-primary" value="Create Workout"/>
+          </form>
+        </div>
+      </div>
 </body>
 </html>

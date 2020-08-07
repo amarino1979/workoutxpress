@@ -2,17 +2,20 @@
 <html lang="en">
 <head>
     <%- include('./partials/head.ejs') %>
-    <title>Edit Workouts</title>
+    <title>Update Workouts</title>
 </head>
 <body>
     <nav>
         <%- include('./partials/nav.ejs') %>
     </nav>
-    <h1>Update Workout</h1>
+    <h1 style="text-align: center; color: slategray; font-size: 600%; font-weight: bold;">Update Workout</h1>
+    <div class="card w-25 mr-auto">
+        <div class="card-body">
+          <h5 class="card-title"> Update Workout</h5>
     <form action="/workoutxpress/workouts/<%= workouts.id %>?_method=PUT" method="POST">
         <input type="text" name="name" value="<%= workouts.name %>"/><br/>
         <input type="date" name="date" value="<%= workouts.date %>"><br/>
-        <textarea name="description" value="<%= workouts.exercises %>"></textarea><br/>
+        <textarea name="description" value="<%= workouts.description %>"></textarea><br/>
         Upper Body: <input type="checkbox" name="upperBody" <% if (workouts.upperBody) { %>
                 checked
                 <% } %>
@@ -37,7 +40,9 @@
             checked
             <% } %>
         /><br/>
-        <input type="submit" value="Update Workout"/>
+        <input type="submit" class="btn btn-primary" value="Update Workout"/>
     </form>
+    </div>
+    </div>
 </body>
 </html>
