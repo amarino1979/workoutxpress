@@ -10,28 +10,21 @@ body {
     padding: 2rem;
 }
 
-/* #navbar {
+li .nav-items {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: .5rem; 
+    font-size: 22px;
 }
-
+/* 
 #navbarSupportedContent {
     display: flex;
     align-items: center;
     padding: 1rem;
 } */
 
-footer {
-    background-color: darkgrey;
-    margin: 0px;
-    padding: .75rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    height: 290px;
-    width: 100%;
-}
+
 
 .card {
     height: 450px !important;
@@ -40,4 +33,21 @@ footer {
 
 .card-img-top {
     height: 220px !important;
+}
+
+/* Footer Section */
+footer {
+    background-color: darkgrey;
+    margin: 0px;
+    padding: .75rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 295px;
+    width: 100%;
+}
+
+.social a {
+    font-size: 2em;
+    padding: 1rem;
 }
