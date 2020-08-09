@@ -18,14 +18,22 @@ li .nav-items {
     padding: .5rem; 
     font-size: 22px;
 }
-/* 
-#navbarSupportedContent {
-    display: flex;
-    align-items: center;
-    padding: 1rem;
-} */
 
-
+.display-name {
+    text-align: center;
+    color:rgb(194, 194, 136); 
+    font-size: 700%; 
+    font-weight: bold;
+}
+/* Home Page */
+.welcome-msg {
+    color: steelblue;
+    font-size: 200%;
+    background-color: rgb(156, 184, 177); 
+    width: 100%;
+    border-radius: 4px;
+    padding: 10px;
+}
 
 .card {
     height: 450px !important;
@@ -51,4 +59,23 @@ footer {
 .social a {
     font-size: 2em;
     padding: 1rem;
+}
+
+/*___Media Queries___ */
+@media (max-width: 992px) {
+    .display-name {
+        font-size: 600%; 
+    }
+}
+
+@media (max-width: 768px) {
+    .display-name {
+        font-size: 500%; 
+    }
+}
+
+@media (max-width: 576px) {
+    .display-name {
+        font-size: 400%; 
+    }
 }

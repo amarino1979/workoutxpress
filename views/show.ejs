@@ -10,7 +10,7 @@
     <nav>
         <%- include('./partials/nav.ejs') %>
     </nav>
-    <div class="card w-25 mr-auto">
+    <div class="card mr-auto">
         <div class="card-body">
             <h5 class="card-title"></h5>
             <h3><%=workouts.name %></h3>
@@ -35,9 +35,9 @@
             </p>
         </div>
         <div class="btn-wrapper text-center d-flex justify-content-between">
-        <a href="/workoutxpress/workouts/<%= workouts.id %>/edit" class="btn btn-primary">Update</a>
+        <a href="/workoutxpress/workouts/<%= workouts.id %>/edit" class="btn btn-primary" style="margin-left: 10px;">Update</a>
         <form action="/workoutxpress/workouts/<%= workouts.id %>?_method=DELETE" method="POST">
-            <input type="submit" class="btn btn-secondary d-flex align-items-center" value="Delete Workout" />
+            <input type="submit" class="btn btn-secondary d-flex align-items-center" style="margin-right: 10px;" value="Delete Workout" />
         </form>
     </div>
     </div>

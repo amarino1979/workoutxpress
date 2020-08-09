@@ -8,14 +8,14 @@
     <nav>
         <%- include('./partials/nav.ejs') %>
     </nav>
-    <h1 style="text-align: center; color: slategray; font-size: 600%; font-weight: bold;">Update Workout</h1>
-    <div class="card w-25 mr-auto">
+    <h1 class="display-name">Update Workout</h1>
+    <div class="card mr-auto">
         <div class="card-body">
           <h5 class="card-title"> Update Workout</h5>
     <form action="/workoutxpress/workouts/<%= workouts.id %>?_method=PUT" method="POST">
         <input type="text" name="name" value="<%= workouts.name %>"/><br/>
         <input type="date" name="date" value="<%= workouts.date %>"><br/>
-        <input name="description" value="<%= workouts.description %>"></input><br/>
+        <input name="description" style="height: 100px;" value="<%= workouts.description %>"></input><br/>
         Upper Body: <input type="checkbox" name="upperBody" <% if (workouts.upperBody) { %>
                 checked
                 <% } %>
