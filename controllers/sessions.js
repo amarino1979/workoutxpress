@@ -1,6 +1,6 @@
 const express = require('express')
-const sessionsRouter = express.Router()
 const bcrypt = require('bcrypt')
+const sessionsRouter = express.Router()
 const User = require('../models/users')
 
 sessionsRouter.get('/new', (req, res) => {

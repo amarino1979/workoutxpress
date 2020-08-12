@@ -13,7 +13,7 @@ userRouter.post('/', (req, res) => {
     //hash the pswd before putting in the db
     req.body.password = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10))
     User.create(req.body, (err, createdUser) => {
-        console.log('accout created', createdUser)
+        console.log('account created', createdUser)
         res.redirect('/workoutxpress')
     })
 })

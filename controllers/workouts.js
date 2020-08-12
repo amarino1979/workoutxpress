@@ -1,6 +1,14 @@
 const express = require('express')
 const router = express.Router()
+const userWorkout = require('../models/user_workouts')
 const Workout = require('../models/workout')
+const isAuthenticated = (req, res, next) => {
+    if (req.session.currentUser) {
+        return next();
+    } else {
+        res.redirect('/users/new')
+    }
+}
 
 // Seed Route
 router.get('/seed', async (req, res) => {
@@ -53,9 +61,9 @@ router.get('/', (req, res) => {
 })
 
 // Index Route
-router.get('/workouts', (req, res) => {
-    Workout.find({}, (error, allWorkouts) => {
-        console.log(req.session)
+router.get('/workouts', isAuthenticated, (req, res) => {
+    userWorkout.find({currentUser: req.session.currentUser}, (error, allWorkouts) => {
+        // console.log('this is req.session' + req.session)
         req.session.anyProperty = 'any value'
         console.log(req.session)
         res.render('index.ejs', {
@@ -65,14 +73,14 @@ router.get('/workouts', (req, res) => {
     })
 })
 // New Route
-router.get('/new', (req, res) => {
+router.get('/new', isAuthenticated, (req, res) => {
     res.render('new.ejs', {
         currentUser: req.session.currentUser
     })
 })
 
 // Post Route
-router.post('/workouts', (req, res) => {
+router.post('/workouts', isAuthenticated, (req, res) => {
     //console.log(req.body)
     if(req.body.upperBody === 'on'){
         req.body.upperBody = true
@@ -99,13 +107,32 @@ router.post('/workouts', (req, res) => {
     } else {
         req.body.weightTraining =false
     }
+
     Workout.create(req.body, (error, createdWorkout)=>{
+        if (error) {
+            console.log(error)
+            return
+        }
+        // console.log('hello', req.session.currentUser)
+        // const userWorkout = {
+        //     user_id: req.session.currentUser._id,
+        //     workouts_id: createdWorkout._id.toString(),
+        //     name: createdWorkout.name,
+        //     date: createdWorkout.date
+        // }
+        // console.log(userWorkout)
+        // userWorkout.create(userWorkout, (err, userWorkoutCreated) => {
+        //     if (err) {
+        //         console.log('this sucks')
+        //     }
+        //     console.log(userWorkoutCreated)
+        // })
         res.redirect('/workoutxpress/workouts');
       })
 })
 
 // Show Route
-router.get('/workouts/:id', (req, res) =>{
+router.get('/workouts/:id', isAuthenticated, (req, res) =>{
     //console.log(Workout)
     Workout.findById(req.params.id, (err, foundWorkout)=>{
       res.render('show.ejs', {
@@ -115,7 +142,7 @@ router.get('/workouts/:id', (req, res) =>{
     })
   })
   // Edit Route
-  router.get('/workouts/:id/edit', (req, res) => {
+  router.get('/workouts/:id/edit', isAuthenticated, (req, res) => {
       //console.log('test')
     Workout.findById(req.params.id, (err, foundWorkout) => {
         res.render('edit.ejs', {
@@ -125,7 +152,7 @@ router.get('/workouts/:id', (req, res) =>{
     })
 })
 // Update Route
-  router.put('/workouts/:id', (req, res) => {
+  router.put('/workouts/:id', isAuthenticated, (req, res) => {
     if(req.body.upperBody === 'on'){
         req.body.upperBody = true
     } else {
@@ -160,12 +187,16 @@ router.get('/workouts/:id', (req, res) =>{
     });
 });
   // Delete Route
-  router.delete('/workouts/:id', (req, res) => {
+  router.delete('/workouts/:id', isAuthenticated, (req, res) => {
       //console.log('test')
     Workout.findByIdAndRemove(req.params.id, (err, deleteWorkout) => {
         res.redirect('/workoutxpress/workouts')
     })
 })
+
+// async function createUserWorkout (workout, userId) {
+//     await userWorkout.create()
+// }
 
 module.exports = router;
 
